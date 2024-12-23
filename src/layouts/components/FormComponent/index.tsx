@@ -5,8 +5,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Formdata } from "./types";
+import { useDispatch } from "react-redux";
+import { AddIncome } from "../../../redux/features/expenseSlice";
 
 const FormComponent: React.FC = () => {
+
+  const dispatch  = useDispatch();
   const schema = yup
     .object({
       incomeSource: yup.string().required(),
@@ -23,6 +27,7 @@ const FormComponent: React.FC = () => {
 
   const onSubmitHandler = (data: Formdata) => {
     console.log(data);
+    dispatch(AddIncome(data))
   };
   return (
     <div className="form-container">
