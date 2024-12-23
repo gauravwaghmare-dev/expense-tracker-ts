@@ -1,0 +1,25 @@
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 900px;
+  flex-direction: column;
+  background-color: #ececec;
+  border-radius: 10px;
+  margin: 20px;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container input {
+  margin: 20px;
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+}
+
+.input-container p {
+  margin-left: 20px;
+}
