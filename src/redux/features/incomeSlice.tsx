@@ -1,17 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const initialState = {
-  incomeDetails: {},
+export const initialState:any = {
+  incomeDetails: [],
 };
 
 const incomeSlice = createSlice({
-  name: "expenceSlice",
+  name: "incomeSlice",
   initialState,
   reducers: {
     AddIncome: (state, action) => {
-      console.log(state);
-      console.log(action);
-      return { ...state.incomeDetails, incomeDetails: action.payload };
+      state.incomeDetails.push(action.payload)
+      
     },
   },
 });

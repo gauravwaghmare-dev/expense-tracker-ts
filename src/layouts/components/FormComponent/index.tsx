@@ -28,7 +28,7 @@ const FormComponent: React.FC = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmitHandler = (data: Formdata) => {
-    console.log(data);
+    // console.log(data);
     dispatch(AddIncome(data));
   };
   return (
