@@ -1,4 +1,4 @@
-import React, { FormEvent } from "react";
+import React from "react";
 import "./styles.css";
 import Button from "../../../components/Button";
 import { useForm } from "react-hook-form";
@@ -6,16 +6,18 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Formdata } from "./types";
 import { useDispatch } from "react-redux";
-import { AddIncome } from "../../../redux/features/expenseSlice";
+import { AddIncome } from "../../../redux/features/incomeSlice";
 
 const FormComponent: React.FC = () => {
-
-  const dispatch  = useDispatch();
+  const dispatch = useDispatch();
   const schema = yup
     .object({
-      incomeSource: yup.string().required(),
-      date: yup.string().required(),
-      cost: yup.number().required().typeError("Enter Valid Number"),
+      incomeSource: yup
+        .string()
+        .required()
+        .typeError("Income Source is a required field"),
+      date: yup.string().required().typeError("Date is a required field"),
+      cost: yup.number().required().typeError("Enter Cost Value Number"),
       description: yup.string().required(),
     })
     .required();
@@ -27,7 +29,7 @@ const FormComponent: React.FC = () => {
 
   const onSubmitHandler = (data: Formdata) => {
     console.log(data);
-    dispatch(AddIncome(data))
+    dispatch(AddIncome(data));
   };
   return (
     <div className="form-container">
