@@ -24,12 +24,14 @@ const FormComponent: React.FC = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmitHandler = (data: Formdata) => {
     // console.log(data);
     dispatch(AddIncome(data));
+    reset();
   };
   return (
     <div className="form-container">
